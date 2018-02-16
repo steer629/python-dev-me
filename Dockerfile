@@ -14,11 +14,12 @@ RUN apt-get update \
     #&& apt-get update \
     && apt-get install -y --no-install-recommends --allow-unauthenticated \
         supervisor \
-        openssh-server pwgen sudo vim-tiny \
+        openssh-server pwgen sudo vim \
         net-tools \
         lxde x11vnc xvfb \
         gtk2-engines-murrine ttf-ubuntu-font-family \
-        libreoffice firefox \
+        firefox \
+        spyder \
         fonts-wqy-microhei \
         #language-pack-zh-hant language-pack-gnome-zh-hant firefox-locale-zh-hant libreoffice-l10n-zh-tw \
         nginx \
@@ -31,6 +32,9 @@ RUN apt-get update \
     && apt-get autoremove \
     && rm -rf /var/lib/apt/lists/*
 
+#RUN touch ~/.bash_aliases
+RUN alias python=python3' 
+#RUN source ~/.bash_aliases
 
 # tini for subreap                                   
 ENV TINI_VERSION v0.9.0
