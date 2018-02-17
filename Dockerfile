@@ -1,7 +1,7 @@
 FROM ubuntu:17.10
 MAINTAINER steer629
 
-#ENV DEBIAN_FRONTEND noninteractive
+ENV DEBIAN_FRONTEND noninteractive
 
 #RUN sed -i 's#http://archive.ubuntu.com/#http://tw.archive.ubuntu.com/#' /etc/apt/sources.list
 
