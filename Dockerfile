@@ -44,8 +44,8 @@ RUN alias python=python3
 
 #ADD image /
 #RUN pip3 install setuptools wheel && pip3 install -r /usr/lib/web/requirements.txt
-#ADD xstartup /root/.vnc/xstartup
-#ADD passwd /root/.vnc/passwd
+ADD xstartup /root/.vnc/xstartup
+ADD passwd /root/.vnc/passwd
 
 #RUN chmod 600 /root/.vnc/passwd
 
