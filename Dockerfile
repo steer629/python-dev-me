@@ -7,12 +7,12 @@ ENV DEBIAN_FRONTEND noninteractive
 
 # built-in packages
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends software-properties-common curl \
+    && apt-get install -y --no-install-recommends software-properties-common curl\
     #&& sh -c "echo 'deb http://download.opensuse.org/repositories/home:/Horst3180/xUbuntu_16.04/ /' >> /etc/apt/sources.list.d/arc-theme.list" \
     #&& curl -SL http://download.opensuse.org/repositories/home:Horst3180/xUbuntu_16.04/Release.key | apt-key add - \
     #&& add-apt-repository ppa:fcwu-tw/ppa \
     #&& apt-get update \
-    && apt-get install -y --no-install-recommends --allow-unauthenticated \
+    && apt-get install -y --no-install-recommends --allow-unauthenticated  apt-utils \
         supervisor \
         openssh-server pwgen sudo vim \
         net-tools \
@@ -42,7 +42,7 @@ ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /bin/
 RUN chmod +x /bin/tini
 
 #ADD image /
-RUN pip install setuptools wheel && pip install -r /usr/lib/web/requirements.txt
+#RUN pip3 install setuptools wheel && pip3 install -r /usr/lib/web/requirements.txt
 
 EXPOSE 80
 WORKDIR /root
