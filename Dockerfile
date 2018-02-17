@@ -41,7 +41,7 @@ ENV TINI_VERSION v0.9.0
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /bin/tini
 RUN chmod +x /bin/tini
 
-ADD image /
+#ADD image /
 RUN pip install setuptools wheel && pip install -r /usr/lib/web/requirements.txt
 
 EXPOSE 80
