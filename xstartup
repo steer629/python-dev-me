@@ -8,9 +8,18 @@ unset DBUS_SESSION_BUS_ADDRESS
 [ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
 xsetroot -solid grey
 vncconfig -iconic &
+/usr/bin/startlubuntu
 
-gnome-panel &
-gnome-settings-daemon &
-metacity &
-nautilus &
-gnome-terminal &
+
+#xrdb $HOME/.Xresources
+#xsetroot -solid grey
+#x-terminal-emulator -geometry 80x24+10+10 -ls -title "$VNCDESKTOP Desktop" &
+#x-window-manager &
+# Fix to make GNOME work
+#export XKL_XMODMAP_DISABLE=1
+
+#gnome-panel &
+#gnome-settings-daemon &
+#metacity &
+#nautilus &
+#gnome-terminal &
