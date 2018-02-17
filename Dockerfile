@@ -33,7 +33,7 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 #RUN touch ~/.bash_aliases
-RUN alias python=python3' 
+RUN alias python=python3
 #RUN source ~/.bash_aliases
 
 # tini for subreap                                   
