@@ -42,7 +42,7 @@ ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /bin/
 RUN chmod +x /bin/tini
 
 #ADD image /
-#RUN pip3 install setuptools wheel && pip3 install -r /usr/lib/web/requirements.txt
+RUN pip3 install setuptools wheel && pip3 install -r /usr/lib/web/requirements.txt
 
 EXPOSE 80
 WORKDIR /root
