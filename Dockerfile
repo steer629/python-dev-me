@@ -16,7 +16,7 @@ RUN apt-get update \
         supervisor \
         openssh-server pwgen sudo vim \
         net-tools \
-        lxde \
+        lubuntu-desktop \
         #x11vnc xvfb \
         tightvncserver \
         gtk2-engines-murrine ttf-ubuntu-font-family \
@@ -52,10 +52,12 @@ RUN chmod 600 /root/.vnc/passwd
 
 CMD /usr/bin/vncserver :1 -geometry 1280x800 -depth 24 && tail -f /root/.vnc/*:1.log
 
+#EXPOSE 80
+WORKDIR /root
+ENV HOME=/home/ubuntu \
+    SHELL=/bin/bash
+#ENTRYPOINT ["/startup.sh"]
+
 EXPOSE 5901
 
-#EXPOSE 80
-#WORKDIR /root
-#ENV HOME=/home/ubuntu \
-#    SHELL=/bin/bash
-#ENTRYPOINT ["/startup.sh"]
+
