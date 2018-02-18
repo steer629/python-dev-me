@@ -16,7 +16,8 @@ RUN apt-get update \
         supervisor \
         openssh-server pwgen sudo vim \
         net-tools \
-        lxde x11vnc xvfb \
+        lxde \
+        #x11vnc xvfb \
         tightvncserver \
         gtk2-engines-murrine ttf-ubuntu-font-family \
         firefox \
