@@ -14,7 +14,7 @@ RUN apt-get update \
     #&& apt-get update \
     && apt-get install -y --no-install-recommends --allow-unauthenticated  apt-utils \
         supervisor \
-        openssh-server pwgen sudo vim \
+        openssh-server sudo vim \
         net-tools \
         lubuntu-desktop \
         #x11vnc xvfb \
@@ -45,18 +45,18 @@ RUN alias python=python3
 
 #ADD image /
 #RUN pip3 install setuptools wheel && pip3 install -r /usr/lib/web/requirements.txt
-ADD xstartup /root/.vnc/xstartup
-ADD passwd /root/.vnc/passwd
+#ADD xstartup /root/.vnc/xstartup
+#ADD passwd /root/.vnc/passwd
 
-RUN chmod 600 /root/.vnc/passwd
+#RUN chmod 600 /root/.vnc/passwd
 
-CMD /usr/bin/vncserver :1 -geometry 1280x800 -depth 24 && tail -f /root/.vnc/*:1.log
+#CMD /usr/bin/vncserver :1 -geometry 1280x800 -depth 24 && tail -f /root/.vnc/*:1.log
 
 #EXPOSE 80
 WORKDIR /root
 ENV HOME=/home/ubuntu \
     SHELL=/bin/bash
-#ENTRYPOINT ["/startup.sh"]
+ENTRYPOINT ["/startup.sh"]
 
 EXPOSE 5901
 
