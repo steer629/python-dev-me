@@ -41,8 +41,8 @@ WORKDIR /root
 #ENV HOME=/home/ubuntu \
 #    SHELL=/bin/bash \
 ENV USER root
-RUN cat password.txt password.txt | vncpasswd && \
-  rm password.txt
+#RUN cat password.txt password.txt | vncpasswd && \
+#  rm password.txt
 # Expose VNC port
 #ENTRYPOINT ["/startup.sh"]
 
