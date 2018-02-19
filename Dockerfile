@@ -41,9 +41,11 @@ WORKDIR /root
 #ENV HOME=/home/ubuntu \
 #    SHELL=/bin/bash \
 ENV USER root
-#RUN cat password.txt password.txt | vncpasswd && \
-#  rm password.txt
+COPY password.txt .
+RUN cat password.txt password.txt | vncpasswd && \
+  rm password.txt
 # Expose VNC port
+EXPOSE 5901
 #ENTRYPOINT ["/startup.sh"]
 
 # tini for subreap                                   
@@ -64,8 +66,8 @@ RUN sed -i '0,/port=-1/{s/port=-1/port=5901/}' /etc/xrdp/xrdp.ini
 #EXPOSE 80
 # Copy VNC script that handles restarts
 COPY vnc.sh /opt/
-CMD ["sudo /opt/vnc.sh"]
+CMD ["/opt/vnc.sh"]
 
-EXPOSE 5901
+
 
 
