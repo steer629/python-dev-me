@@ -16,12 +16,12 @@ RUN apt-get update \
         supervisor \
         openssh-server sudo vim \
         net-tools \
-        lubuntu-desktop \
+        #lubuntu-desktop \
         #x11vnc xvfb \
-        tightvncserver \
+        lxde-core tightvncserver lxterminal xrdp\
         gtk2-engines-murrine ttf-ubuntu-font-family \
         firefox \
-        spyder \
+        spyder3 \
         fonts-wqy-microhei \
         #language-pack-zh-hant language-pack-gnome-zh-hant firefox-locale-zh-hant libreoffice-l10n-zh-tw \
         #nginx \
@@ -39,9 +39,13 @@ RUN alias python=python3
 #RUN source ~/.bash_aliases
 
 WORKDIR /root
-ENV HOME=/home/ubuntu \
-    SHELL=/bin/bash
-ENTRYPOINT ["/startup.sh"]
+#ENV HOME=/home/ubuntu \
+#    SHELL=/bin/bash \
+ENV USER root
+RUN cat password.txt password.txt | vncpasswd && \
+  rm password.txt
+# Expose VNC port
+#ENTRYPOINT ["/startup.sh"]
 
 # tini for subreap                                   
 #ENV TINI_VERSION v0.9.0
@@ -50,15 +54,18 @@ ENTRYPOINT ["/startup.sh"]
 
 #ADD image /
 #RUN pip3 install setuptools wheel && pip3 install -r /usr/lib/web/requirements.txt
-ADD xstartup /root/.vnc/xstartup
-ADD passwd /root/.vnc/passwd
+#ADD xstartup /root/.vnc/xstartup
+#ADD passwd /root/.vnc/passwd
 
-RUN chmod 600 /root/.vnc/passwd
-
-CMD /usr/bin/vncserver :1 -geometry 1280x800 -depth 24 && tail -f /root/.vnc/*:1.log
+#RUN chmod 600 /root/.vnc/passwd
+# Set XDRP to use TightVNC port
+RUN sed -i '0,/port=-1/{s/port=-1/port=5901/}' /etc/xrdp/xrdp.ini
+#CMD /usr/bin/vncserver :1 -geometry 1280x800 -depth 24 && tail -f /root/.vnc/*:1.log
 
 #EXPOSE 80
-
+# Copy VNC script that handles restarts
+COPY vnc.sh /opt/
+CMD ["/opt/vnc.sh"]
 
 EXPOSE 5901
 
