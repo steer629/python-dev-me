@@ -1,4 +1,4 @@
-FROM ubuntu:17.10
+FROM ubuntu:14.04
 MAINTAINER steer629
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -12,29 +12,29 @@ RUN apt-get update \
     #&& add-apt-repository ppa:fcwu-tw/ppa \
     #&& apt-get update \
     && apt-get install -y --no-install-recommends --allow-unauthenticated  apt-utils \
-        supervisor \
-        openssh-server sudo vim \
-        net-tools \
+        #supervisor \
+        #openssh-server sudo vim \
+        #net-tools \
         #lubuntu-desktop \
         #x11vnc xvfb \
         lxde-core tightvncserver lxterminal xrdp\
-        gtk2-engines-murrine ttf-ubuntu-font-family \
+        #gtk2-engines-murrine ttf-ubuntu-font-family \
         firefox \
-        spyder3 \
-        fonts-wqy-microhei \
+        #spyder3 \
+        #fonts-wqy-microhei \
         #language-pack-zh-hant language-pack-gnome-zh-hant firefox-locale-zh-hant libreoffice-l10n-zh-tw \
         #nginx \
-        python3-pip python3-dev build-essential \
-        mesa-utils libgl1-mesa-dri \
-        gnome-themes-standard gtk2-engines-pixbuf gtk2-engines-murrine pinta \
+        #python3-pip python3-dev build-essential \
+        #mesa-utils libgl1-mesa-dri \
+        #gnome-themes-standard gtk2-engines-pixbuf gtk2-engines-murrine pinta \
         #arc-theme \
-        dbus-x11 x11-utils \
+        #dbus-x11 x11-utils \
     && apt-get autoclean \
     && apt-get autoremove \
     && rm -rf /var/lib/apt/lists/*
 
 #RUN touch ~/.bash_aliases
-RUN alias python=python3
+#RUN alias python=python3
 #RUN source ~/.bash_aliases
 
 WORKDIR /root
@@ -48,16 +48,6 @@ RUN cat password.txt password.txt | vncpasswd && \
 EXPOSE 5901
 #ENTRYPOINT ["/startup.sh"]
 
-# tini for subreap                                   
-#ENV TINI_VERSION v0.9.0
-#ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /bin/tini
-#RUN chmod +x /bin/tini
-
-#ADD image /
-#RUN pip3 install setuptools wheel && pip3 install -r /usr/lib/web/requirements.txt
-#ADD xstartup /root/.vnc/xstartup
-#ADD passwd /root/.vnc/passwd
-
 #RUN chmod 600 /root/.vnc/passwd
 # Set XDRP to use TightVNC port
 RUN sed -i '0,/port=-1/{s/port=-1/port=5901/}' /etc/xrdp/xrdp.ini
@@ -65,8 +55,8 @@ RUN sed -i '0,/port=-1/{s/port=-1/port=5901/}' /etc/xrdp/xrdp.ini
 
 #EXPOSE 80
 # Copy VNC script that handles restarts
-#COPY vnc.sh /opt/
-#CMD ["sudo /opt/vnc.sh"]
+COPY vnc.sh /opt/
+CMD ["sudo /opt/vnc.sh"]
 
 
 
