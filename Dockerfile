@@ -20,7 +20,7 @@ RUN apt-get update \
         lxde-core tightvncserver lxterminal xrdp\
         #gtk2-engines-murrine ttf-ubuntu-font-family \
         firefox \
-        sudo \
+        sudo 
         #spyder3 \
         #fonts-wqy-microhei \
         #language-pack-zh-hant language-pack-gnome-zh-hant firefox-locale-zh-hant libreoffice-l10n-zh-tw \
