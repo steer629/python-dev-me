@@ -30,15 +30,15 @@ RUN apt-get update \
         #gnome-themes-standard gtk2-engines-pixbuf gtk2-engines-murrine pinta \
         #arc-theme \
         #dbus-x11 x11-utils \
-    && apt-get autoclean \
-    && apt-get autoremove \
-    && rm -rf /var/lib/apt/lists/*
+    #&& apt-get autoclean \
+    #&& apt-get autoremove \
+    #&& rm -rf /var/lib/apt/lists/*
 
 #RUN touch ~/.bash_aliases
 #RUN alias python=python3
 #RUN source ~/.bash_aliases
 
-WORKDIR /root
+#WORKDIR /root
 #ENV HOME=/home/ubuntu \
 #    SHELL=/bin/bash \
 ENV USER root
@@ -56,8 +56,8 @@ RUN sed -i '0,/port=-1/{s/port=-1/port=5901/}' /etc/xrdp/xrdp.ini
 
 #EXPOSE 80
 # Copy VNC script that handles restarts
-#COPY vnc.sh /opt/
-#CMD ["sudo /opt/vnc.sh"]
+COPY vnc.sh /opt/
+CMD ["/opt/vnc.sh"]
 
 
 
