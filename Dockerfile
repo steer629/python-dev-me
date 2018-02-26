@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 MAINTAINER steer629
 
-ENV DEBIAN_FRONTEND noninteractive
+#ENV DEBIAN_FRONTEND noninteractive
 
 
 # built-in packages
