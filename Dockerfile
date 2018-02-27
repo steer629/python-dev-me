@@ -15,30 +15,30 @@ RUN apt-get update \
         #supervisor \
         #openssh-server sudo vim \
         #net-tools \
-        #lubuntu-desktop \
+        lubuntu-desktop \
         #x11vnc xvfb \
         lxde-core tightvncserver lxterminal xrdp\
         #gtk2-engines-murrine ttf-ubuntu-font-family \
         firefox \
-        sudo 
-        #spyder3 \
-        #fonts-wqy-microhei \
-        #language-pack-zh-hant language-pack-gnome-zh-hant firefox-locale-zh-hant libreoffice-l10n-zh-tw \
+        sudo \ 
+        spyder3 \
+        fonts-wqy-microhei \
+        language-pack-zh-hant language-pack-gnome-zh-hant firefox-locale-zh-hant libreoffice-l10n-zh-tw \
         #nginx \
-        #python3-pip python3-dev build-essential \
+        python3-pip python3-dev build-essential \
         #mesa-utils libgl1-mesa-dri \
         #gnome-themes-standard gtk2-engines-pixbuf gtk2-engines-murrine pinta \
         #arc-theme \
-        #dbus-x11 x11-utils \
-    #&& apt-get autoclean \
-    #&& apt-get autoremove \
-    #&& rm -rf /var/lib/apt/lists/*
+        dbus-x11 x11-utils \
+    && apt-get autoclean \
+    && apt-get autoremove \
+    && rm -rf /var/lib/apt/lists/*
 
 #RUN touch ~/.bash_aliases
 #RUN alias python=python3
 #RUN source ~/.bash_aliases
 
-#WORKDIR /root
+WORKDIR /root
 #ENV HOME=/home/ubuntu \
 #    SHELL=/bin/bash \
 ENV USER root
