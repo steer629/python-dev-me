@@ -15,11 +15,10 @@ RUN apt-get update \
         #supervisor \
         #openssh-server sudo vim \
         #net-tools \
-        lubuntu-desktop \
+        #lubuntu-desktop \
         #x11vnc xvfb \
         lxde-core tightvncserver lxterminal xrdp\
         #gtk2-engines-murrine ttf-ubuntu-font-family \
-        firefox \
         sudo \ 
         spyder3 \
         fonts-wqy-microhei \
