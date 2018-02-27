@@ -7,27 +7,14 @@ MAINTAINER steer629
 # built-in packages
 RUN apt-get update \
     && apt-get install -y --no-install-recommends software-properties-common curl\
-    #&& sh -c "echo 'deb http://download.opensuse.org/repositories/home:/Horst3180/xUbuntu_16.04/ /' >> /etc/apt/sources.list.d/arc-theme.list" \
-    #&& curl -SL http://download.opensuse.org/repositories/home:Horst3180/xUbuntu_16.04/Release.key | apt-key add - \
-    #&& add-apt-repository ppa:fcwu-tw/ppa \
-    #&& apt-get update \
     && apt-get install -y --no-install-recommends --allow-unauthenticated  apt-utils \
-        #supervisor \
-        #openssh-server sudo vim \
-        #net-tools \
         lubuntu-desktop \
-        #x11vnc xvfb \
-        lxde-core tightvncserver lxterminal xrdp\
-        #gtk2-engines-murrine ttf-ubuntu-font-family \
+        x11vnc xvfb \
+        tightvncserver lxterminal xrdp\
         sudo \ 
         spyder3 \
         fonts-wqy-microhei \
-        language-pack-zh-hant language-pack-gnome-zh-hant firefox-locale-zh-hant libreoffice-l10n-zh-tw \
-        #nginx \
         python3-pip python3-dev build-essential \
-        #mesa-utils libgl1-mesa-dri \
-        #gnome-themes-standard gtk2-engines-pixbuf gtk2-engines-murrine pinta \
-        #arc-theme \
         dbus-x11 x11-utils \
     && apt-get autoclean \
     && apt-get autoremove \
@@ -56,7 +43,7 @@ RUN sed -i '0,/port=-1/{s/port=-1/port=5901/}' /etc/xrdp/xrdp.ini
 #EXPOSE 80
 # Copy VNC script that handles restarts
 COPY vnc.sh /opt/
-COPY xstartup ~/.vnc/
+COPY xstartup /root/.vnc/
 RUN chmod 777 /opt/vnc.sh
 CMD ["/opt/vnc.sh"]
 
