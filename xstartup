@@ -7,6 +7,7 @@ unset DBUS_SESSION_BUS_ADDRESS
 [ -x /etc/vnc/xstartup ] && exec /etc/vnc/xstartup
 [ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
 xsetroot -solid grey
+x-terminal-emulator -geometry 80x24+10+10 -ls -title "$VNCDESKTOP Desktop" &
 vncconfig -iconic &
 #lxterminal &
 #/usr/bin/lxsession -s LXDE &
