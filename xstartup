@@ -10,7 +10,7 @@ xsetroot -solid grey
 vncconfig -iconic &
 #lxterminal &
 #/usr/bin/lxsession -s LXDE &
-/user/bin/startlxde &
+/usr/bin/startlubuntu &
 
 
 #xrdb $HOME/.Xresources
