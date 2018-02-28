@@ -10,7 +10,8 @@ xsetroot -solid grey
 #x-terminal-emulator -geometry 80x24+10+10 -ls -title "$VNCDESKTOP Desktop" &
 vncconfig -iconic &
 lxterminal &
-/usr/bin/lxsession -s LXDE &
+/usr/bin/lxsession -s Lubuntu -e LXDE &
+#/usr/bin/lxsession -s LXDE &
 #/usr/bin/startlxde &
 
 
