@@ -44,6 +44,7 @@ RUN sed -i '0,/port=-1/{s/port=-1/port=5901/}' /etc/xrdp/xrdp.ini
 # Copy VNC script that handles restarts
 COPY vnc.sh /opt/
 COPY xstartup /root/.vnc/
+RUN chmod 777 /root/.vnc/xstartup
 RUN chmod 777 /opt/vnc.sh
 CMD ["/opt/vnc.sh"]
 
