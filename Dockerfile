@@ -8,7 +8,7 @@ MAINTAINER steer629
 RUN apt-get update \
     && apt-get install -y --no-install-recommends software-properties-common curl\
     && apt-get install -y --no-install-recommends --allow-unauthenticated  apt-utils \
-        lxde-core libXfont\
+        lxde-core libXfont1\
         x11vnc xvfb \
         tightvncserver lxterminal xrdp\
         sudo \ 
