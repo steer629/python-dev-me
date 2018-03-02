@@ -8,11 +8,12 @@ MAINTAINER steer629
 RUN apt-get update \
     && apt-get install -y --no-install-recommends software-properties-common curl\
     && apt-get install -y --no-install-recommends --allow-unauthenticated  apt-utils \
-        lubuntu-desktop \
+        lxde-core \
         x11vnc xvfb \
         tightvncserver lxterminal xrdp\
         sudo \ 
         spyder3 \
+        firefox \
         fonts-wqy-microhei \
         python3-pip python3-dev build-essential \
         dbus-x11 x11-utils \
