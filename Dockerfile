@@ -37,8 +37,7 @@ RUN cat password.txt password.txt | vncpasswd && \
 EXPOSE 5901
 #ENTRYPOINT ["/startup.sh"]
 
-RUN pip3 update
-RUN pip3 install --update pip
+RUN pip3 install --upgrade pip
 RUN pip3 install setuptools
 RUN pip3 install Flask
 #RUN chmod 600 /root/.vnc/passwd
