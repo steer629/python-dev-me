@@ -11,7 +11,7 @@ RUN apt-get update \
         lubuntu-core xfonts-base\
         x11vnc xvfb \
         tightvncserver lxterminal xrdp\
-        libapache2-mod-wsgi  \
+        #libapache2-mod-wsgi  \
         sudo \ 
         spyder3 \
         firefox \
