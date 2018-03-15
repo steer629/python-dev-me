@@ -11,6 +11,7 @@ RUN apt-get update \
         lubuntu-core xfonts-base\
         x11vnc xvfb \
         tightvncserver lxterminal xrdp\
+        libapache2-mod-wsgi  \
         sudo \ 
         spyder3 \
         firefox \
@@ -36,6 +37,10 @@ RUN cat password.txt password.txt | vncpasswd && \
 EXPOSE 5901
 #ENTRYPOINT ["/startup.sh"]
 
+RUN pip3 update
+RUN pip3 install --update pip
+RUN pip3 install setuptools
+RUN pip3 install Flask
 #RUN chmod 600 /root/.vnc/passwd
 # Set XDRP to use TightVNC port
 RUN sed -i '0,/port=-1/{s/port=-1/port=5901/}' /etc/xrdp/xrdp.ini
