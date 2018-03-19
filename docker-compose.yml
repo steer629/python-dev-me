@@ -5,5 +5,3 @@ services:
     image: "20180315"
     ports:
       - "5901:5901"
-    networks:
-      - frontend 
