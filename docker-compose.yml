@@ -6,6 +6,4 @@ services:
     ports:
       - "5901"
     networks:
-      - frontend
-      
-
+      - frontend 
