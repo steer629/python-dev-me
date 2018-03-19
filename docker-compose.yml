@@ -2,7 +2,7 @@ version: "3"
 services:
 
   basic:
-    image: 20180315
+    image: 20180315:latest
     ports:
       - "5901"
     networks:
