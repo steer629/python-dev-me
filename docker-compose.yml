@@ -5,3 +5,8 @@ services:
     image: "20180315"
     ports:
       - "5901:5901"
+    volumes:
+      -flask_volume:/root/app
+      
+volumes:
+  flask_volume:
