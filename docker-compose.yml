@@ -6,7 +6,7 @@ services:
     ports:
       - "5901:5901"
     volumes:
-      type:volume
+      -type:volume
       source:flask_volume
       target:/root/app
       
