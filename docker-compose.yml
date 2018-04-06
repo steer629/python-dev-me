@@ -8,5 +8,5 @@ services:
     volumes:
       -flask_volume:/root/app
       
-volumes:
-  flask_volume:
+  volumes:
+    flask_volume:
