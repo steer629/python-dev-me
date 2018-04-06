@@ -6,7 +6,7 @@ services:
     ports:
       - "5901:5901"
     volumes:
-      -"flask_volume:/root/app"
+      - "flask_volume:/root/app"
       
 volumes:
   flask_volume:
